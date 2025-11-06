@@ -121,7 +121,7 @@ The API will run at `http://127.0.0.1:5000`.
 }
 ```
 
-* Stores prediction in `Prediksi_Kedatangan`. `akurasi_prediksi` will be updated once actual service time (`waktu_dilayani`) is recorded.
+* Stores prediction in `Prediksi_Kedatangan`. will be updated once actual service time (`waktu_dilayani`) is recorded.
 
 ## Testing ML Model
 
@@ -149,7 +149,6 @@ curl -X POST http://127.0.0.1:5000/api/v1/predict \
 
 ## Notes
 
-* `akurasi_prediksi` is computed later when actual `waktu_dilayani` is available to compare against `waktu_prediksi`.
 * `Prediksi_Kedatangan` is used to store predictions for future analysis.
 * Use `APScheduler` to schedule retraining jobs (e.g., weekly).
 
