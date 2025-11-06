@@ -1,0 +1,47 @@
+# --- Core Backend ---
+Flask==3.0.3
+Flask-Cors==4.0.0
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.0.7
+Flask-RESTful==0.3.10
+python-dotenv==1.0.1
+PyMySQL==1.1.0
+marshmallow==3.21.1
+Flask-Marshmallow==1.2.1
+Flask-DebugToolbar==0.14.1
+
+# --- Machine Learning & Data ---
+numpy==1.26.4
+pandas==2.2.3
+scikit-learn==1.5.2
+joblib==1.4.2
+matplotlib==3.9.2
+seaborn==0.13.2
+apscheduler==3.10.4
+
+# --- Notifications & Reminder ---
+Flask-Mail==0.10.0
+twilio==9.3.0
+pyfcm==1.5.4
+celery==5.4.0
+redis==5.0.1
+
+# --- Real-time Updates ---
+Flask-SocketIO==5.4.1
+eventlet==0.36.1
+
+# --- Optimization & Scheduling ---
+ortools==9.11.4210
+
+# --- Reporting & Visualization ---
+plotly==5.24.0
+dash==2.17.0
+
+# --- Geolocation (optional) ---
+geopy==2.4.1
+requests==2.32.3
+
+# --- Development Tools ---
+jupyter==1.1.1
+pytest==8.3.3
+black==24.10.0
