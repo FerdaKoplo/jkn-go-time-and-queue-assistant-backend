@@ -38,7 +38,7 @@ def predict_arrival_time():
         prediksi = Prediksi_Kedatangan(
             id_antrian=antrian_obj.id_antrian,
             waktu_prediksi=estimated_time,
-            akurasi_prediksi=None,  
+            # akurasi_prediksi=None,  
             update_terakhir=datetime.now(),
             sumber_data="ML Model v1"
         )
