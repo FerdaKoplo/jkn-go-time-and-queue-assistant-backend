@@ -49,7 +49,6 @@ def preprocess_features(df, training=True):
     return df_features, preprocessor
 
 def train_and_save_model():
-    """Fungsi utama untuk training dan menyimpan model."""
     global model_pipeline
     print("Memulai training model...")
     df = get_training_data()

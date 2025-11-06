@@ -17,7 +17,6 @@ def predict_arrival_time():
     if not all(field in data for field in required_fields):
         return jsonify({"message": "Input tidak lengkap. Harap sertakan semua field wajib.", "predicted_wait_time_minutes": None}), 400
 
-    # Check if Antrian exists
     antrian_obj = Antrian.query.get(data["id_antrian"])
     if not antrian_obj:
         return jsonify({"message": f"Antrian dengan id {data['id_antrian']} tidak ditemukan.", "predicted_wait_time_minutes": None}), 404
@@ -36,11 +35,10 @@ def predict_arrival_time():
 
         estimated_time = datetime.fromisoformat(data['waktu_datang_pasien']) + timedelta(minutes=predicted_minutes)
 
-        # Save to Prediksi_Kedatangan table
         prediksi = Prediksi_Kedatangan(
             id_antrian=antrian_obj.id_antrian,
             waktu_prediksi=estimated_time,
-            akurasi_prediksi=None,  # optional: if you have accuracy metric
+            akurasi_prediksi=None,  
             update_terakhir=datetime.now(),
             sumber_data="ML Model v1"
         )
