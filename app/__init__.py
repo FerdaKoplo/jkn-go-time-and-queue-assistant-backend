@@ -4,7 +4,7 @@ import atexit
 from apscheduler.schedulers.background import BackgroundScheduler
 
 from app.utils.config import Config
-from app.routes import blueprint as routes_blueprint 
+# from app.routes import blueprint as routes_blueprint 
 from app.extension import db, migrate 
 from flask_migrate import Migrate
 
@@ -18,7 +18,8 @@ def create_app(config_class=Config):
     db.init_app(app)
     Migrate(app, db) 
 
-    app.register_blueprint(routes_blueprint)
+    from app.routes import blueprint
+    app.register_blueprint(blueprint)
 
     from app.services.ml_service import train_and_save_model 
     
@@ -37,5 +38,6 @@ def create_app(config_class=Config):
     scheduler.start()
     
     atexit.register(lambda: scheduler.shutdown())
+    
 
     return app

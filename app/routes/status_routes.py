@@ -1,5 +1,5 @@
 from flask import jsonify
-from app.routes import blueprint
+from . import blueprint
 from app.services.ml_service import load_model
 
 @blueprint.route('/status', methods=['GET'])
