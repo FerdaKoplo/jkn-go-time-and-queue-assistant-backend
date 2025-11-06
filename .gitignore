@@ -14,7 +14,6 @@ ENV/
 .env.local
 *.env
 instance/
-config.py
 secrets.json
 
 .ipynb_checkpoints
@@ -36,14 +35,8 @@ secrets.json
 *.csv
 *.xlsx
 
-*.pkl
-*.joblib
-*.h5
-*.model
-*.sav
-models/
-checkpoints/
-artifacts/
+# Removed *.pkl, *.joblib, *.h5, *.model, *.sav so ML models can be tracked
+# Removed models/, checkpoints/, artifacts/ to allow saving model directories
 
 instance/
 __pycache__/
