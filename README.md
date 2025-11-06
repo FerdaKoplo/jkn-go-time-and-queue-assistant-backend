@@ -178,5 +178,3 @@ jkn-go-time-and-queue-assistant-backend/
 * Create pull requests for improvements or bug fixes.
 
 ---
-
-Created for the JKN Go Time and Queue Assistant project.
