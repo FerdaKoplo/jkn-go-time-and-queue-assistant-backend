@@ -4,10 +4,11 @@ import atexit
 from apscheduler.schedulers.background import BackgroundScheduler
 
 from app.utils.config import Config
-from app.services.ml_service import train_and_save_model
 from app.routes import blueprint as routes_blueprint 
+from app.extension import db, migrate 
+from flask_migrate import Migrate
 
-db = SQLAlchemy() 
+# db = SQLAlchemy() 
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -15,9 +16,12 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     db.init_app(app)
+    Migrate(app, db) 
 
     app.register_blueprint(routes_blueprint)
 
+    from app.services.ml_service import train_and_save_model 
+    
     scheduler = BackgroundScheduler()
     
     scheduler.add_job(
@@ -34,5 +38,4 @@ def create_app(config_class=Config):
     
     atexit.register(lambda: scheduler.shutdown())
 
-    
     return app
