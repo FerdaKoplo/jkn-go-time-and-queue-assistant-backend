@@ -1,8 +1,8 @@
 """Initial migration
 
-Revision ID: 439f11ab0420
+Revision ID: 2f893816c802
 Revises: 
-Create Date: 2025-11-06 15:28:58.976644
+Create Date: 2025-11-11 11:37:10.535902
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '439f11ab0420'
+revision = '2f893816c802'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -73,7 +73,8 @@ def upgrade():
     sa.Column('id_jadwal', sa.Integer(), nullable=False),
     sa.Column('status_antrian', sa.Enum('MENUNGGU', 'DILAYANI', 'BATAL', name='statusantrian'), nullable=False),
     sa.Column('waktu_datang', sa.DateTime(), nullable=True),
-    sa.Column('waktu_dilayani', sa.DateTime(), nullable=True),
+    sa.Column('waktu_panggil', sa.DateTime(), nullable=True),
+    sa.Column('waktu_selesai', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['id_jadwal'], ['jadwal_faskes.id_jadwal'], ),
     sa.ForeignKeyConstraint(['id_peserta'], ['peserta.id_peserta'], ),
     sa.PrimaryKeyConstraint('id_antrian')
@@ -94,7 +95,6 @@ def upgrade():
     sa.Column('id_prediksi', sa.Integer(), nullable=False),
     sa.Column('id_antrian', sa.Integer(), nullable=False),
     sa.Column('waktu_prediksi', sa.DateTime(), nullable=True),
-    sa.Column('akurasi_prediksi', sa.Float(), nullable=True),
     sa.Column('update_terakhir', sa.DateTime(), nullable=True),
     sa.Column('sumber_data', sa.String(length=100), nullable=True),
     sa.ForeignKeyConstraint(['id_antrian'], ['antrian.id_antrian'], ),
