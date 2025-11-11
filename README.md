@@ -15,7 +15,7 @@ The system allows:
 
 * Python 3.9+
 * MySQL
-* Pip packages listed in `requirements.txt`
+* Pip packages listed in `requirement.txt`
 
 ## Setup
 
@@ -37,7 +37,7 @@ env\Scripts\activate     # Windows
 ### 3. Install dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 
 ### 4. Configure database
@@ -59,7 +59,7 @@ python
 ### 6. Seed example data (optional, for testing)
 
 ```bash
-python seed_data.py
+python seed.py
 ```
 
 This will populate the tables: `Peserta`, `Faskes`, `Dokter`, `Jadwal_Faskes`, `Antrian`.
@@ -164,8 +164,8 @@ jkn-go-time-and-queue-assistant-backend/
 │   ├── utils/
 │   └── extension.py
 ├── run.py
-├── seed_data.py
-├── requirements.txt
+├── seed.py
+├── requirement.txt
 └── README.md  (this file)
 ```
 
